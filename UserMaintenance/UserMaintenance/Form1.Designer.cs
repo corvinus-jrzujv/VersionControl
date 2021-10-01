@@ -35,6 +35,7 @@ namespace UserMaintenance
             this.button_Add = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button_File = new System.Windows.Forms.Button();
+            this.button_Delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listUsers
@@ -63,7 +64,7 @@ namespace UserMaintenance
             // 
             // button_Add
             // 
-            this.button_Add.Location = new System.Drawing.Point(250, 67);
+            this.button_Add.Location = new System.Drawing.Point(250, 83);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(213, 23);
             this.button_Add.TabIndex = 5;
@@ -73,7 +74,7 @@ namespace UserMaintenance
             // 
             // button_File
             // 
-            this.button_File.Location = new System.Drawing.Point(250, 96);
+            this.button_File.Location = new System.Drawing.Point(250, 112);
             this.button_File.Name = "button_File";
             this.button_File.Size = new System.Drawing.Size(213, 23);
             this.button_File.TabIndex = 6;
@@ -81,11 +82,22 @@ namespace UserMaintenance
             this.button_File.UseVisualStyleBackColor = true;
             this.button_File.Click += new System.EventHandler(this.button_File_Click);
             // 
+            // button_Delete
+            // 
+            this.button_Delete.Location = new System.Drawing.Point(250, 141);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(213, 23);
+            this.button_Delete.TabIndex = 7;
+            this.button_Delete.Text = "Törlés";
+            this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 301);
+            this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.button_File);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.text_LastName);
@@ -106,6 +118,7 @@ namespace UserMaintenance
         private System.Windows.Forms.Button button_Add;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button_File;
+        private System.Windows.Forms.Button button_Delete;
     }
 }
 
