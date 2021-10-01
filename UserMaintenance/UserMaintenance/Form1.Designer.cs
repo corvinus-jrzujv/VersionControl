@@ -31,9 +31,7 @@ namespace UserMaintenance
         {
             this.listUsers = new System.Windows.Forms.ListBox();
             this.label_LastName = new System.Windows.Forms.Label();
-            this.label_FirstName = new System.Windows.Forms.Label();
             this.text_LastName = new System.Windows.Forms.TextBox();
-            this.text_FirstName = new System.Windows.Forms.TextBox();
             this.button_Add = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
@@ -51,18 +49,9 @@ namespace UserMaintenance
             this.label_LastName.AutoSize = true;
             this.label_LastName.Location = new System.Drawing.Point(247, 41);
             this.label_LastName.Name = "label_LastName";
-            this.label_LastName.Size = new System.Drawing.Size(27, 13);
+            this.label_LastName.Size = new System.Drawing.Size(54, 13);
             this.label_LastName.TabIndex = 1;
-            this.label_LastName.Text = "Last";
-            // 
-            // label_FirstName
-            // 
-            this.label_FirstName.AutoSize = true;
-            this.label_FirstName.Location = new System.Drawing.Point(247, 70);
-            this.label_FirstName.Name = "label_FirstName";
-            this.label_FirstName.Size = new System.Drawing.Size(26, 13);
-            this.label_FirstName.TabIndex = 2;
-            this.label_FirstName.Text = "First";
+            this.label_LastName.Text = "Full Name";
             // 
             // text_LastName
             // 
@@ -71,16 +60,9 @@ namespace UserMaintenance
             this.text_LastName.Size = new System.Drawing.Size(157, 20);
             this.text_LastName.TabIndex = 3;
             // 
-            // text_FirstName
-            // 
-            this.text_FirstName.Location = new System.Drawing.Point(306, 67);
-            this.text_FirstName.Name = "text_FirstName";
-            this.text_FirstName.Size = new System.Drawing.Size(157, 20);
-            this.text_FirstName.TabIndex = 4;
-            // 
             // button_Add
             // 
-            this.button_Add.Location = new System.Drawing.Point(250, 96);
+            this.button_Add.Location = new System.Drawing.Point(250, 67);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(213, 23);
             this.button_Add.TabIndex = 5;
@@ -94,9 +76,7 @@ namespace UserMaintenance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 301);
             this.Controls.Add(this.button_Add);
-            this.Controls.Add(this.text_FirstName);
             this.Controls.Add(this.text_LastName);
-            this.Controls.Add(this.label_FirstName);
             this.Controls.Add(this.label_LastName);
             this.Controls.Add(this.listUsers);
             this.Name = "Form1";
@@ -110,9 +90,7 @@ namespace UserMaintenance
 
         private System.Windows.Forms.ListBox listUsers;
         private System.Windows.Forms.Label label_LastName;
-        private System.Windows.Forms.Label label_FirstName;
         private System.Windows.Forms.TextBox text_LastName;
-        private System.Windows.Forms.TextBox text_FirstName;
         private System.Windows.Forms.Button button_Add;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
