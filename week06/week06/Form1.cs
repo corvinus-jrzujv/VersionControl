@@ -17,7 +17,7 @@ namespace week06
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
-        string result;
+        BindingList<string> Currencies = new BindingList<string>();
 
 
         public Form1()
@@ -27,7 +27,9 @@ namespace week06
             NewFunction();
             NewFunction2();
             dataGridView1.DataSource = Rates;
+          
         }
+
 
         private void GetExchangeRates()
         {
@@ -40,16 +42,26 @@ namespace week06
                 endDate = "2020-06-30"
             };
 
-            
+
             var response = mnbService.GetExchangeRates(request);
 
             var result = response.GetExchangeRatesResult;
         }
-        
+
         private void NewFunction()
         {
             var xml = new XmlDocument();
             xml.LoadXml(result);
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+
+                Currencies.Add(result);
+
+
+            }
+
+            RefreshData();
 
             foreach (XmlElement element in xml.DocumentElement)
             {
@@ -70,7 +82,7 @@ namespace week06
                     rate.Value = value / unit;
             }
 
-          
+
         }
 
         private void NewFunction2()
@@ -90,6 +102,11 @@ namespace week06
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+       private void RefreshData()
+        {
+
         }
     }
 }
