@@ -29,11 +29,8 @@ namespace week06
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.getCurrenciesResponseBodyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getCurrenciesResponseBodyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -46,10 +43,6 @@ namespace week06
             this.dataGridView1.Size = new System.Drawing.Size(776, 426);
             this.dataGridView1.TabIndex = 0;
             // 
-            // getCurrenciesResponseBodyBindingSource
-            // 
-            this.getCurrenciesResponseBodyBindingSource.DataSource = typeof(week06.MnbServiceReference.GetCurrenciesResponseBody);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -59,7 +52,6 @@ namespace week06
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.getCurrenciesResponseBodyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -67,7 +59,6 @@ namespace week06
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource getCurrenciesResponseBodyBindingSource;
     }
 }
 
