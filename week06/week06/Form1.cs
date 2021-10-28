@@ -23,13 +23,18 @@ namespace week06
         public Form1()
         {
             InitializeComponent();
-            GetExchangeRates();
-            NewFunction();
-            NewFunction2();
             dataGridView1.DataSource = Rates;
-          
-        }
+      
+            RefreshData();
 
+            comboBox1.Text = "EUR";
+        }
+        
+        private void RefreshData()
+        {
+            GetExchangeRates();
+            FunctionChart();
+        }
 
         private void GetExchangeRates()
         {
@@ -38,33 +43,21 @@ namespace week06
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                startDate = (dateTimePicker1.Value).ToString(),
+                endDate = (dateTimePicker2.Value).ToString()
             };
-
 
             var response = mnbService.GetExchangeRates(request);
 
             var result = response.GetExchangeRatesResult;
-        }
 
-        private void NewFunction()
-        {
             var xml = new XmlDocument();
             xml.LoadXml(result);
 
+            // Végigmegünk a dokumentum fő elemének gyermekein
             foreach (XmlElement element in xml.DocumentElement)
             {
 
-                Currencies.Add(result);
-
-
-            }
-
-            RefreshData();
-
-            foreach (XmlElement element in xml.DocumentElement)
-            {
                 var rate = new RateData();
                 Rates.Add(rate);
 
@@ -82,10 +75,9 @@ namespace week06
                     rate.Value = value / unit;
             }
 
-
+           
         }
-
-        private void NewFunction2()
+        private void FunctionChart()
         {
             chartRateData.DataSource = Rates;
 
@@ -104,9 +96,39 @@ namespace week06
             chartArea.AxisY.IsStartedFromZero = false;
         }
 
-       private void RefreshData()
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            RefreshData();
+        }
 
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void GetCurrencies()
+        {
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(result);
+            foreach (XmlElement item in xml.DocumentElement.ChildNodes[0])
+            {
+                string newItem = item.InnerText;
+                Currencies.Add(newItem);
+            }
+           
+            comboBox1.DataSource = Currencies;
         }
     }
-}
+ }
+
+
+
