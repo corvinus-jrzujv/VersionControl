@@ -14,7 +14,7 @@ namespace week08
 {
     public partial class Form1 : Form
     {
-        private List<Toy> toys = new List<Toy>();
+        private List<Toy> _toys = new List<Toy>();
 
         private Toy _nextToy;
 
@@ -39,7 +39,7 @@ namespace week08
         private void createTimer_Tick(object sender, EventArgs e)
         {
             var ball = Factory.CreateNew();
-            toys.Add(ball);
+            _toys.Add(ball);
             ball.Left = -ball.Width;
             mainPanel.Controls.Add(ball);
         }
@@ -47,7 +47,7 @@ namespace week08
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var ball in toys)
+            foreach (var ball in _toys)
             {
                 ball.MoveToy();
                 if (ball.Left > maxPosition)
@@ -56,9 +56,9 @@ namespace week08
 
             if (maxPosition > 1000)
             {
-                var oldestBall = toys[0];
+                var oldestBall = _toys[0];
                 mainPanel.Controls.Remove(oldestBall);
-                toys.Remove(oldestBall);
+                _toys.Remove(oldestBall);
             }
         }
 
@@ -79,8 +79,8 @@ namespace week08
             if (_nextToy != null)
                 Controls.Remove(_nextToy);
             _nextToy = Factory.CreateNew();
-            _nextToy.Top = lblNext.Top + lblNext.Height + 20;
-            _nextToy.Left = lblNext.Left;
+            _nextToy.Top = labelComing.Top + labelComing.Height + 20;
+            _nextToy.Left = labelComing.Left;
             Controls.Add(_nextToy);
         }
     }

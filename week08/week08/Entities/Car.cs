@@ -8,7 +8,7 @@ using week08.Abstractions;
 
 namespace week08.Entities
 {
-    public class Car : Abstractions.Toy
+    public class Car : Toy
     {
         protected override void DrawImage(Graphics g)
         {
