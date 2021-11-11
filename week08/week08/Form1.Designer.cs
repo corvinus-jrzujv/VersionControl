@@ -33,19 +33,20 @@ namespace week08
             this.labelComing = new System.Windows.Forms.Label();
             this.btnCar = new System.Windows.Forms.Button();
             this.btnBall = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
-            this.mainPanel.Location = new System.Drawing.Point(33, 92);
+            this.mainPanel.Location = new System.Drawing.Point(149, 172);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(776, 426);
+            this.mainPanel.Size = new System.Drawing.Size(664, 355);
             this.mainPanel.TabIndex = 0;
             // 
             // labelComing
             // 
             this.labelComing.AutoSize = true;
-            this.labelComing.Location = new System.Drawing.Point(77, 38);
+            this.labelComing.Location = new System.Drawing.Point(80, 9);
             this.labelComing.Name = "labelComing";
             this.labelComing.Size = new System.Drawing.Size(85, 17);
             this.labelComing.TabIndex = 1;
@@ -53,7 +54,7 @@ namespace week08
             // 
             // btnCar
             // 
-            this.btnCar.Location = new System.Drawing.Point(208, 35);
+            this.btnCar.Location = new System.Drawing.Point(201, 12);
             this.btnCar.Name = "btnCar";
             this.btnCar.Size = new System.Drawing.Size(75, 23);
             this.btnCar.TabIndex = 2;
@@ -63,7 +64,7 @@ namespace week08
             // 
             // btnBall
             // 
-            this.btnBall.Location = new System.Drawing.Point(322, 35);
+            this.btnBall.Location = new System.Drawing.Point(305, 12);
             this.btnBall.Name = "btnBall";
             this.btnBall.Size = new System.Drawing.Size(75, 23);
             this.btnBall.TabIndex = 3;
@@ -71,15 +72,26 @@ namespace week08
             this.btnBall.UseVisualStyleBackColor = true;
             this.btnBall.Click += new System.EventHandler(this.btnBall_Click);
             // 
+            // btnColor
+            // 
+            this.btnColor.BackColor = System.Drawing.Color.Teal;
+            this.btnColor.Location = new System.Drawing.Point(403, 12);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 4;
+            this.btnColor.UseVisualStyleBackColor = false;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 750);
+            this.ClientSize = new System.Drawing.Size(825, 539);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnBall);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.btnCar);
             this.Controls.Add(this.labelComing);
-            this.Controls.Add(this.mainPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -93,6 +105,7 @@ namespace week08
         private System.Windows.Forms.Label labelComing;
         private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Button btnBall;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
