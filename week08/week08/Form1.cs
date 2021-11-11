@@ -7,19 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using week08.Abstractions;
 using week08.Entities;
 
 namespace week08
 {
     public partial class Form1 : Form
     {
-        private List<Ball> _balls = new List<Ball>();
+        private List<Toy> toys = new List<Toy>();
 
-        private BallFactory _factory;
-        public BallFactory Factory
+        private Toy _nextToy;
+
+
+        private IToyFactory _factory;
+        public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value;
+                DisplayNext();
+
+            }
         }
 
         public Form1()
@@ -32,7 +39,7 @@ namespace week08
         private void createTimer_Tick(object sender, EventArgs e)
         {
             var ball = Factory.CreateNew();
-            _balls.Add(ball);
+            toys.Add(ball);
             ball.Left = -ball.Width;
             mainPanel.Controls.Add(ball);
         }
@@ -40,20 +47,41 @@ namespace week08
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var ball in _balls)
+            foreach (var ball in toys)
             {
-                ball.MoveBall();
+                ball.MoveToy();
                 if (ball.Left > maxPosition)
                     maxPosition = ball.Left;
             }
 
             if (maxPosition > 1000)
             {
-                var oldestBall = _balls[0];
+                var oldestBall = toys[0];
                 mainPanel.Controls.Remove(oldestBall);
-                _balls.Remove(oldestBall);
+                toys.Remove(oldestBall);
             }
         }
 
+        private void btnCar_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+
+        }
+
+        private void btnBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+
+        }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = lblNext.Top + lblNext.Height + 20;
+            _nextToy.Left = lblNext.Left;
+            Controls.Add(_nextToy);
+        }
     }
 }
