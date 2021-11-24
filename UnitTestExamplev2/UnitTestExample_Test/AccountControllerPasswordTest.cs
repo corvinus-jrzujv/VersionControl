@@ -12,10 +12,10 @@ namespace UnitTestExample_Test
     {
         [
          Test,
-         TestCase("abcd", false),
-         TestCase("CAPITAL", false),
-         TestCase("nocapital", false),
-         TestCase("Capital11", false),
+         TestCase("abcdABCD", false),
+         TestCase("CAPITAL12", false),
+         TestCase("nocapital12", false),
+         TestCase("Capital12", false),
          TestCase("GoodPassword10", true)
         ]
         public void ValidatePassword(string password, bool expectedResult)
