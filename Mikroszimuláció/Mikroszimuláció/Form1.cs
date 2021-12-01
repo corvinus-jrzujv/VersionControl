@@ -89,9 +89,6 @@ namespace Mikroszimuláció
 
             
 
-            Population = GetPopulation(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
             
         }
@@ -140,6 +137,11 @@ namespace Mikroszimuláció
 
         public void Simulation()
         {
+
+            Population = GetPopulation(@"C:\Temp\nép.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+
             for (int year = 2005; year <= 2024; year++)
             {
 
@@ -156,7 +158,21 @@ namespace Mikroszimuláció
                                     select x).Count();
                 Console.WriteLine(
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+
+                richTextBox1.AppendText(string.Format("Év:{0} \n \t Fiúk:{1} \n \t Lányok:{2} \n \n",
+                    year, nbrOfMales, nbrOfFemales));
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+
+            Population.Clear();
+            BirthProbabilities.Clear();
+            DeathProbabilities.Clear();
+
+            Simulation();
         }
     }
 }
